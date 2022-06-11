@@ -1,0 +1,16 @@
+---
+dependencies: []
+galaxy_info:
+  role_name: docker
+  version: 0.1.0
+  author: grababyte
+  description: Docker installation for Linux
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.4
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all

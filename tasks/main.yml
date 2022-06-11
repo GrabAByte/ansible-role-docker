@@ -1,0 +1,4 @@
+---
+- name: "Docker Placeholder"
+  debug:
+    msg: "I will install and configure Docker"
