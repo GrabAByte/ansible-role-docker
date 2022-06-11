@@ -2,7 +2,7 @@
 dependencies: []
 galaxy_info:
   role_name: docker
-  version: 0.1.0
+  version: 0.0.0
   author: grababyte
   description: Docker installation for Linux
   license: "license (BSD, MIT)"
