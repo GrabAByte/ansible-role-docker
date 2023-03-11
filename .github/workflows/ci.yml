@@ -8,26 +8,26 @@ name: CI
 
 jobs:
   get-version:
-    uses: GrabAByte/github-devops-workflows/.github/workflows/getVersion.yml@0.5.3
+    uses: GrabAByte/github-devops-workflows/.github/workflows/getVersion.yml@0.6.2
     with:
       metadataFile: 'main.yml'
       metadataPath: 'meta'
   yaml-lint:
-    uses: GrabAByte/github-devops-workflows/.github/workflows/yamlLint.yml@0.5.3
+    uses: GrabAByte/github-devops-workflows/.github/workflows/yamlLint.yml@0.6.2
     with:
       yamlPath: .
     needs: get-version
   # molecule-test:
-  # uses: GrabAByte/github-devops-workflows/.github/workflows/ansibleMolecule.yml@0.5.3
+  # uses: GrabAByte/github-devops-workflows/.github/workflows/ansibleMolecule.yml@0.6.2
   # needs: get-version
   sonar-scan:
-    uses: GrabAByte/github-devops-workflows/.github/workflows/sonarScan.yml@0.5.3
+    uses: GrabAByte/github-devops-workflows/.github/workflows/sonarScan.yml@0.6.2
     secrets:
       WORKFLOW_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     needs: get-version
   update-version:
-    uses: GrabAByte/github-devops-workflows/.github/workflows/updateVersion.yml@0.5.3
+    uses: GrabAByte/github-devops-workflows/.github/workflows/updateVersion.yml@0.6.2
     with:
       gitUsername: 'grababyte'
       gitEmail: 'grababyte@github.com'
@@ -35,7 +35,7 @@ jobs:
       metadataPath: 'meta'
     needs: [yaml-lint, sonar-scan]  # molecule-test
   ansible-release:
-    uses: GrabAByte/github-devops-workflows/.github/workflows/ansibleRelease.yml@0.5.3
+    uses: GrabAByte/github-devops-workflows/.github/workflows/ansibleRelease.yml@0.6.2
     secrets:
       GALAXY_TOKEN: ${{ secrets.GALAXY_TOKEN }}
     needs: update-version
