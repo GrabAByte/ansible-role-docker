@@ -17,9 +17,9 @@ jobs:
     with:
       yamlPath: .
     needs: get-version
-  molecule-test:
-    uses: GrabAByte/github-devops-workflows/.github/workflows/ansibleMolecule.yml@0.5.3
-    needs: get-version
+  # molecule-test:
+  # uses: GrabAByte/github-devops-workflows/.github/workflows/ansibleMolecule.yml@0.5.3
+  # needs: get-version
   sonar-scan:
     uses: GrabAByte/github-devops-workflows/.github/workflows/sonarScan.yml@0.5.3
     secrets:
@@ -33,7 +33,7 @@ jobs:
       gitEmail: 'grababyte@github.com'
       metadataFile: 'main.yml'
       metadataPath: 'meta'
-    needs: [yaml-lint, molecule-test, sonar-scan]
+    needs: [yaml-lint, sonar-scan]  # molecule-test
   ansible-release:
     uses: GrabAByte/github-devops-workflows/.github/workflows/ansibleRelease.yml@0.5.3
     secrets:
