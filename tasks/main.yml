@@ -1,4 +1,4 @@
 ---
 - name: "Docker Placeholder"
-  debug:
+  ansible.builtin.debug:
     msg: "I will install and configure Docker"
